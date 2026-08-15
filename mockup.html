@@ -1,0 +1,902 @@
+<title>VTA QS LMS — Full UI Mockup</title>
+<style>
+/* ============ ICON SPRITE (inline, no external icon font) ============ */
+</style>
+
+<svg style="display:none">
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11.5V17c0 1.4 2.7 2.8 6 2.8s6-1.4 6-2.8v-5.5"/><path d="M21 9v6"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6.2 6.5-6.2s6.5 2.6 6.5 6.2"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 13.8c2.6.2 5.5 1.9 5.5 6.2"/></symbol>
+  <symbol id="i-board" viewBox="0 0 24 24"><rect x="2.5" y="4" width="16" height="12" rx="1.5"/><path d="M6.5 20h8M10.5 16v4"/><circle cx="19.5" cy="17" r="2.7"/><path d="M18 16.3l1 1 2-1.8"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="4.5" y="4" width="15" height="17" rx="2"/><path d="M9 3.2h6v3H9z"/><path d="m8.5 13 2.2 2.2 4.3-4.4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4.5 5a2 2 0 0 1 2-2H18v17H6.5a2 2 0 0 0-2 2z"/><path d="M18 3.2V20"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12.5 20.5h9"/><path d="M17 3.5a2.1 2.1 0 0 1 3 3L8.5 18l-4.3 1.1L5.3 14.8z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20V11M12 20V4M19 20v-8"/><path d="M2.5 20h19"/></symbol>
+  <symbol id="i-week" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9.5h18M8.5 4.5v15M14 4.5v15"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2.2H6.5a2 2 0 0 0-2 2v15.6a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.2V8h5.5"/></symbol>
+  <symbol id="i-filepdf" viewBox="0 0 24 24"><path d="M14 2.2H6.5a2 2 0 0 0-2 2v15.6a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.2V8h5.5"/><path d="M7.5 17.5v-4h1.4c.9 0 1.5.6 1.5 1.4s-.6 1.4-1.5 1.4H7.5M12 17.5v-4h1c1.1 0 1.9.9 1.9 2s-.8 2-1.9 2h-1M17 17.5v-4h2.2M17 15.6h1.6" stroke-width="1.1"/></symbol>
+  <symbol id="i-horn" viewBox="0 0 24 24"><path d="M3 10.5v4h3.6l6 3.8V6.7l-6 3.8z"/><path d="M17.5 8.3a4.6 4.6 0 0 1 0 8.4"/><path d="M4 18.5l1 3"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M2.5 13h19"/></symbol>
+  <symbol id="i-calcheck" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4.3"/></symbol>
+  <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.5 8.5 0 1 1 9.8 4a7 7 0 0 0 10.2 10.2z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8.5a6 6 0 0 1 12 0c0 5.2 2 6.5 2 6.5H4s2-1.3 2-6.5"/><path d="M9.5 18.5a2.5 2.5 0 0 0 5 0"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c0-4 3.3-6.8 7.5-6.8s7.5 2.8 7.5 6.8"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 21H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16.5 16.5 4.5-4.5-4.5-4.5"/><path d="M21 12H9.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M17.5 3.5a2.1 2.1 0 0 1 3 3L9 18l-4.3 1.1L5.8 14.7z"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9.5 7V4.8c0-.6.5-1.1 1.1-1.1h2.8c.6 0 1.1.5 1.1 1.1V7"/><path d="M6.5 7 7.3 19.3a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9L17.5 7"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11.5M7.5 11l4.5 4.5L16.5 11"/><path d="M4.5 19.5h15"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 3.5h11L20.5 8v12a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M8 3.5V9h8V3.5M7.5 21v-6.5h9V21" fill="none"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21.5 2.5 11 13"/><path d="M21.5 2.5 15 21.5l-4-8.5-8.5-4z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18.5h6M10 21.5h4"/><path d="M12 2.5A6.5 6.5 0 0 0 8 14c1 .8 1.5 1.7 1.5 2.9h5c0-1.2.5-2.1 1.5-2.9a6.5 6.5 0 0 0-4-11.5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M6.5 8.5V3.5h11v5"/><rect x="3" y="8.5" width="18" height="8" rx="1.5"/><path d="M6.5 15.5h11v5.5h-11z"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V3.5M7.5 8l4.5-4.5L16.5 8"/><path d="M4.5 19.5h15"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4.3"/><path d="M11 12 20 3M16.5 6.5l2.7 2.7M13.5 9.5l2 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5.5 5.5L20.5 6.5"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11.8A7 7 0 0 0 5 9.2C5 14.7 12 21 12 21z"/><circle cx="12" cy="9.2" r="2.4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.3l-5.4 3.1 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+</svg>
+
+<style>
+/* ==========================================================================
+   TOKENS — copied verbatim from the live app's design system (style.css)
+   Only substitution: Google Fonts / Font Awesome CDN -> system stacks +
+   the inline sprite above, since artifacts can't reach external hosts.
+   ========================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --accent: #0052FF; --accent-hover: #2F6BFF; --accent-active: #003ECC; --accent-subtle: #E0EAFF; --accent-contrast: #FFFFFF;
+  --navy: #0F172A;
+  --bg-base: #FAFAFA; --bg-surface: #FFFFFF; --bg-elevated: #FFFFFF; --bg-overlay: rgba(15,23,42,0.62);
+  --border-subtle: #EEF1F5; --border-default: #E2E8F0; --border-strong: #CBD5E1;
+  --text-primary: #0F172A; --text-secondary: #45566B; --text-muted: #64748B; --text-disabled: #A3B1C2;
+  --success-bg: #E6F5EF; --success-fg: #16845B;
+  --warning-bg: #FFF3D8; --warning-fg: #9A6800;
+  --danger-bg: #FBE9E6; --danger-fg: #C74634;
+  --info-bg: #E8F0FF; --info-fg: #4D7CFF;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px; --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+  --shadow-md: 0 10px 25px rgba(15,23,42,0.08);
+  --shadow-lg: 0 20px 45px rgba(15,23,42,0.14);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 120ms var(--ease-standard);
+  --transition-base: 200ms var(--ease-standard);
+  --transition-slow: 320ms var(--ease-standard);
+  --banner-h: 45px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+body { font-family: var(--font-sans); background: var(--bg-base); color: var(--text-primary); line-height: 1.5; }
+
+body.dark-mode {
+  --bg-base: #0D1B2A; --bg-surface: #1B2D3F; --bg-elevated: #22364C; --bg-overlay: rgba(2,8,16,0.72);
+  --border-subtle: #22364C; --border-default: #2A4055; --border-strong: #3C5876;
+  --text-primary: #E8EDF2; --text-secondary: #B7C6D6; --text-muted: #8AA3B9; --text-disabled: #5B7288;
+  --success-bg: #0A2E1F; --success-fg: #5BD39D;
+  --warning-bg: #33280C; --warning-fg: #E8B84B;
+  --danger-bg: #3A1613; --danger-fg: #F0897C;
+  --info-bg: #1E2F4D; --info-fg: #7FA4FF;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 10px 25px rgba(0,0,0,0.35);
+  --shadow-lg: 0 20px 45px rgba(0,0,0,0.45);
+  color: var(--text-primary);
+}
+
+.icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -3px; flex-shrink: 0; }
+.icon.sm { width: 12px; height: 12px; vertical-align: -2px; }
+.icon.lg { width: 22px; height: 22px; vertical-align: -5px; }
+.icon.xl { width: 34px; height: 34px; vertical-align: -8px; stroke-width: 1.6; }
+
+/* ---- App shell ---- */
+.app { display: flex; min-height: calc(100vh - var(--banner-h)); }
+.sidebar { width: 270px; background: linear-gradient(180deg, var(--navy), #0d2b42); color: #fff; position: fixed; top: var(--banner-h); left: 0; bottom: 0; z-index: 20; padding: var(--space-5) var(--space-4); overflow: auto; transition: transform var(--transition-slow); box-shadow: var(--shadow-lg); }
+.brand { display: flex; align-items: center; gap: var(--space-3); padding: 5px 10px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.brand .logo { width: 44px; height: 44px; border-radius: var(--radius-md); background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 15px; box-shadow: 0 4px 14px rgba(0,82,255,0.35); }
+.brand b { font-size: 15px; } .brand small { display: block; color: #a9bdcd; font-size: 11px; }
+.nav-title { text-transform: uppercase; font-size: 10px; letter-spacing: 1.5px; color: #7893a8; margin: 26px 10px 8px; font-weight: 700; }
+.nav-title:first-of-type { margin-top: 6px; }
+.nav a { position: relative; display: flex; gap: var(--space-3); align-items: center; padding: 10px 12px; color: #c3d4e2; text-decoration: none; border-radius: var(--radius-md); margin: 2px 0; font-size: 13px; font-weight: 500; cursor: pointer; transition: background var(--transition-fast), color var(--transition-fast); }
+.nav a:hover { background: rgba(255,255,255,0.06); color: #fff; }
+.nav a.active { background: rgba(0,82,255,0.18); color: #fff; font-weight: 600; }
+.nav a.active::before { content: ""; position: absolute; left: -16px; top: 50%; transform: translateY(-50%); width: 3px; height: 20px; border-radius: var(--radius-full); background: var(--accent-hover); box-shadow: 0 0 10px rgba(77,124,255,0.7); }
+.nav i, .nav svg { width: 18px; text-align: center; color: #8ea3b8; transition: color var(--transition-fast); }
+.nav a:hover svg { color: #c3d4e2; }
+.nav a.active svg { color: var(--accent-hover); }
+.profile-mini { margin-top: var(--space-6); padding: var(--space-3); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); transition: background var(--transition-fast); cursor: pointer; }
+.profile-mini:hover { background: rgba(255,255,255,0.1); }
+.profile-mini .row { display: flex; gap: 10px; align-items: center; }
+.avatar { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; font-weight: 800; flex-shrink: 0; }
+.main { margin-left: 270px; width: calc(100% - 270px); }
+.topbar { height: 70px; background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; position: sticky; top: var(--banner-h); z-index: 10; }
+.search { display: flex; align-items: center; background: var(--bg-base); border: 1px solid var(--border-default); border-radius: var(--radius-md); width: min(420px,45vw); height: 40px; padding: 0 13px; gap: 9px; transition: border-color var(--transition-fast), box-shadow var(--transition-fast); }
+.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,82,255,0.14); }
+.search svg { color: var(--text-muted); }
+.search input { border: 0; outline: 0; background: transparent; width: 100%; font: inherit; font-size: 13px; color: var(--text-primary); }
+.top-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.icon-btn, .dark-toggle { border: 1px solid var(--border-default); background: var(--bg-surface); width: 40px; height: 40px; border-radius: var(--radius-md); cursor: pointer; color: var(--text-secondary); display: grid; place-items: center; transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast); }
+.icon-btn:hover, .dark-toggle:hover { background: var(--accent-subtle); border-color: var(--accent); color: var(--accent); }
+.dark-mode .icon-btn:hover, .dark-mode .dark-toggle:hover { background: var(--info-bg); color: var(--info-fg); }
+.notif { position: relative; }
+.notif .dot-flag { position: absolute; top: 7px; right: 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--danger-fg); border: 2px solid var(--bg-surface); }
+.content { padding: 28px 30px 60px; max-width: 1500px; margin: auto; }
+
+/* ---- Hero ---- */
+.hero { background: linear-gradient(125deg,#092237,#174d70), radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px); background-blend-mode: normal; background-size: auto, 22px 22px; color: #fff; border-radius: 20px; padding: 28px 30px; display: flex; justify-content: space-between; gap: 25px; box-shadow: var(--shadow-md); overflow: hidden; position: relative; flex-wrap: wrap; }
+.hero:after { content: ""; position: absolute; width: 330px; height: 330px; border-radius: 50%; right: -120px; top: -150px; background: rgba(0,82,255,0.22); filter: blur(10px); }
+.hero h1 { font-size: 27px; font-weight: 800; letter-spacing: -0.7px; }
+.hero p { color: #c9d9e5; margin-top: 7px; max-width: 650px; font-size: 13px; }
+.hero-actions { display: flex; gap: 9px; align-items: center; z-index: 1; flex-wrap: wrap; }
+
+/* ---- Buttons ---- */
+.btn { border: 0; border-radius: var(--radius-md); padding: 10px 16px; font-weight: 700; cursor: pointer; font-size: 12px; transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast); display: inline-flex; align-items: center; gap: 7px; line-height: 1; text-decoration: none; font-family: inherit; }
+.btn-gold { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; box-shadow: 0 4px 14px rgba(0,82,255,0.25); }
+.btn-gold:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,82,255,0.35); filter: brightness(1.06); }
+.btn-gold:active { transform: translateY(0) scale(0.98); }
+.btn-green { background: var(--success-fg); color: #fff; }
+.btn-green:hover { filter: brightness(1.08); box-shadow: 0 6px 16px rgba(22,132,91,0.3); }
+.btn-red { background: var(--danger-bg); color: var(--danger-fg); }
+.btn-red:hover { background: var(--danger-fg); color: #fff; box-shadow: 0 6px 16px rgba(199,70,52,0.3); }
+.btn-outline { background: transparent; border: 1px solid #b8cad8; color: #fff; }
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.btn-outline-dark { background: transparent; border: 1px solid var(--border-default); color: var(--text-primary); }
+.btn-outline-dark:hover { border-color: var(--accent); background: var(--accent-subtle); color: var(--accent); box-shadow: 0 2px 8px rgba(0,82,255,0.08); }
+.dark-mode .btn-outline-dark:hover { background: var(--info-bg); color: var(--info-fg); }
+.btn-sm { padding: 6px 12px; font-size: 10px; }
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.section-head { display: flex; justify-content: space-between; align-items: center; margin: var(--space-6) 0 var(--space-3); flex-wrap: wrap; gap: 10px; }
+.section-head h2 { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary); }
+.section-head p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+/* ---- Forms ---- */
+input, select, textarea { font: inherit; color: var(--text-primary); background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 10px 12px; transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast); }
+input:hover, select:hover, textarea:hover { border-color: var(--border-strong); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,82,255,0.14); }
+input:disabled, select:disabled, textarea:disabled { opacity: 0.6; cursor: not-allowed; background-color: var(--bg-base); }
+input::placeholder, textarea::placeholder { color: var(--text-disabled); }
+textarea { resize: vertical; line-height: 1.5; }
+label { font-size: 11px; color: var(--text-muted); font-weight: 600; display: block; margin: var(--space-3) 0 5px; }
+select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%2364748B' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
+.dark-mode select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%238AA3B9' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+.grid { display: grid; gap: var(--space-4); }
+.stats { grid-template-columns: repeat(4,1fr); margin-top: var(--space-5); }
+.stat { position: relative; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-4); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base); overflow: hidden; }
+.stat:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.stat .ico { width: 42px; height: 42px; border-radius: var(--radius-md); display: grid; place-items: center; background: var(--accent-subtle); color: var(--accent); float: right; }
+.dark-mode .stat .ico { background: var(--info-bg); color: var(--info-fg); }
+.stat span { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; display: block; margin-top: 4px; }
+.stat b { display: block; font-size: 28px; font-weight: 800; margin-top: 6px; letter-spacing: -0.02em; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.trend { font-size: 10px; color: var(--success-fg); font-weight: 700; }
+.cards-3 { grid-template-columns: repeat(3,1fr); }
+.course, .student-card, .assignment-item, .certificate-card, .thread, .job, .event-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-4); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base); }
+.course:hover, .student-card:hover, .assignment-item:hover, .certificate-card:hover, .thread:hover, .job:hover, .event-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-default); }
+.course-icon { width: 45px; height: 45px; border-radius: var(--radius-md); background: var(--accent-subtle); color: var(--accent); display: grid; place-items: center; margin-bottom: var(--space-3); overflow: hidden; font-weight: 800; font-size: 13px; }
+.dark-mode .course-icon { background: var(--info-bg); color: var(--info-fg); }
+.course h3 { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.course p { font-size: 11px; color: var(--text-muted); margin: 6px 0 13px; }
+.progress { height: 7px; background: var(--border-subtle); border-radius: var(--radius-full); overflow: hidden; }
+.progress span { height: 100%; display: block; background: linear-gradient(90deg, var(--accent), var(--accent-hover)); border-radius: var(--radius-full); }
+.course-foot { display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-3); font-size: 10px; color: var(--text-muted); flex-wrap: wrap; gap: 6px; }
+.layout-2 { grid-template-columns: 1.55fr 1fr; }
+.panel { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-sm); }
+
+/* ---- Tables ---- */
+.table-wrap { overflow: auto; }
+.table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px; }
+.table th { text-align: left; background: var(--bg-base); color: var(--text-secondary); font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; padding: 11px 12px; position: sticky; top: 0; z-index: 1; border-bottom: 1px solid var(--border-default); }
+.table th:first-child { border-top-left-radius: var(--radius-sm); }
+.table th:last-child { border-top-right-radius: var(--radius-sm); }
+.table td { padding: 11px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.table tbody tr { transition: background var(--transition-fast); }
+.table tbody tr:hover { background: var(--bg-base); }
+.dark-mode .table tbody tr:hover { background: var(--bg-elevated); }
+.table tbody tr:last-child td { border-bottom: 0; }
+.table tfoot td { background: var(--bg-base); font-weight: 700; font-size: 11px; border-top: 2px solid var(--border-default); border-bottom: 0; }
+
+.badge { padding: 4px 10px; border-radius: var(--radius-full); font-size: 10px; font-weight: 700; display: inline-block; letter-spacing: 0.2px; }
+.badge.green { background: var(--success-bg); color: var(--success-fg); }
+.badge.gold { background: var(--accent-subtle); color: var(--accent); }
+.dark-mode .badge.gold { background: var(--info-bg); color: var(--info-fg); }
+.badge.red { background: var(--danger-bg); color: var(--danger-fg); }
+.badge.blue { background: var(--info-bg); color: var(--info-fg); }
+.student-card .row { display: flex; gap: 12px; align-items: center; }
+.avatar-lg { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 14px; flex-shrink: 0; object-fit: cover; overflow: hidden; }
+.student-card .actions { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+.assignment-item .meta { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+.assignment-item .actions { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.event-photo-grid { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.event-thumb { width: 60px; height: 60px; border-radius: 8px; border: 1px solid var(--border-default); display: grid; place-items: center; background: var(--bg-base); color: var(--text-disabled); }
+
+.submission-row { border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 12px; margin-bottom: 10px; background: var(--bg-surface); }
+.submission-row .row-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.submission-row .row-top small { color: var(--text-muted); font-size: 10px; }
+
+.att-toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.att-wrap { overflow: auto; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); }
+.att-table { border-collapse: separate; border-spacing: 0; min-width: 900px; width: 100%; font-size: 11px; }
+.att-table th, .att-table td { border-right: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 7px 5px; text-align: center; white-space: nowrap; }
+.att-table th { background: var(--bg-base); color: var(--text-secondary); font-size: 9px; text-transform: uppercase; font-weight: 700; }
+.att-table th.sticky, .att-table td.sticky { position: sticky; left: 0; background: var(--bg-surface); z-index: 3; text-align: left; }
+.att-cell { min-width: 30px; height: 28px; cursor: pointer; font-weight: 800; border-radius: var(--radius-full); display: grid; place-items: center; font-size: 11px; margin: 0 auto; transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+.att-cell:hover:not(.future) { transform: scale(1.1); box-shadow: var(--shadow-sm); }
+.att-cell.P { background: var(--success-bg); color: var(--success-fg); } .att-cell.A { background: var(--danger-bg); color: var(--danger-fg); }
+.att-cell.L { background: var(--warning-bg); color: var(--warning-fg); } .att-cell.N { background: var(--border-subtle); color: var(--text-disabled); border-radius: var(--radius-sm); }
+.att-cell.future { background: repeating-linear-gradient(45deg, var(--border-subtle), var(--border-subtle) 4px, var(--bg-base) 4px, var(--bg-base) 8px); color: var(--text-disabled); cursor: not-allowed; border-radius: var(--radius-sm); }
+.att-summary { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-3); margin: var(--space-4) 0; }
+.att-mini { padding: 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); box-shadow: var(--shadow-sm); }
+.att-mini b { display: block; font-size: 22px; font-weight: 800; } .att-mini span { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; font-weight: 700; }
+.month-tabs { display: flex; gap: 7px; overflow: auto; padding-bottom: 3px; margin-bottom: 15px; }
+.month-tab { border: 1px solid var(--border-default); background: var(--bg-surface); padding: 8px 13px; border-radius: var(--radius-md); cursor: pointer; font-size: 11px; font-weight: 700; color: var(--text-secondary); transition: all var(--transition-fast); }
+.month-tab:hover { border-color: var(--accent); color: var(--accent); }
+.month-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 10px; color: var(--text-muted); margin: 10px 0; }
+.legend span { display: flex; align-items: center; gap: 5px; }
+.dot { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+.dot.p { background: var(--success-bg); } .dot.a { background: var(--danger-bg); } .dot.l { background: var(--warning-bg); } .dot.n { background: var(--border-subtle); }
+.dot.gold { background: var(--accent-subtle); } .dark-mode .dot.gold { background: var(--info-bg); }
+.dot.future { background: repeating-linear-gradient(45deg, var(--border-subtle), var(--border-subtle) 4px, var(--bg-base) 4px, var(--bg-base) 8px); }
+
+.diary-toolbar { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-bottom: 16px; }
+.diary-toolbar label { margin: 0 0 4px; }
+.diary-toolbar select, .diary-toolbar input { width: 100%; }
+.diary-sheet { background: #fff; color: #10283b; border: 1px solid var(--border-default); font-family: Georgia, serif; }
+.diary-sheet-head { text-align: center; border-bottom: 2px solid #10283b; padding-bottom: 10px; margin-bottom: 14px; }
+.diary-sheet-head h2 { font-size: 17px; letter-spacing: .5px; font-weight: 700; }
+.diary-sheet-head p { font-size: 12px; font-weight: 700; margin-top: 4px; color: #10283b; }
+.diary-meta-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; font-size: 12px; }
+.diary-meta-row label { font-weight: 700; margin: 0 6px 0 0; display: inline; color: #10283b; }
+.diary-table-wrap { overflow-x: auto; }
+.diary-block-table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+.diary-block-table th, .diary-block-table td { border: 1px solid #10283b; padding: 8px; vertical-align: middle; }
+.diary-block-table th { background: #f3f5f7; font-size: 10px; text-transform: uppercase; letter-spacing: .4px; text-align: center; color: #10283b; }
+.diary-block-table td.center { text-align: center; font-weight: 700; }
+.diary-lunch-divider { text-align: center; font-weight: 700; margin: 10px 0; font-size: 12px; color: #10283b; }
+.diary-footer { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 18px; font-size: 12px; color: #10283b; }
+.diary-footer > div { flex: 1; min-width: 220px; }
+.diary-footer label { font-weight: 700; }
+
+.forum { display: grid; gap: 10px; }
+.thread { cursor: pointer; }
+.thread b { font-size: 12px; } .thread p { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+.reply { padding: 10px 0; border-bottom: 1px solid var(--border-subtle); font-size: 12px; }
+.reply small { color: var(--text-muted); font-size: 10px; }
+.career { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+.job b { font-size: 12px; } .job p { font-size: 10px; color: var(--text-muted); margin: 4px 0; }
+
+.modal { position: fixed; inset: 0; background: var(--bg-overlay); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); display: none; place-items: center; z-index: 50; padding: 20px; }
+.modal.open { display: grid; }
+.modal-card { background: var(--bg-elevated); width: min(520px,100%); border-radius: var(--radius-xl); padding: var(--space-5); max-height: 90vh; overflow: auto; box-shadow: var(--shadow-lg); border: 1px solid var(--border-subtle); }
+.modal-card.wide { width: min(760px,100%); }
+.modal-card h3 { margin-bottom: var(--space-4); font-size: 15px; font-weight: 800; color: var(--text-primary); }
+.modal-card label { font-size: 11px; color: var(--text-muted); font-weight: 600; display: block; margin: var(--space-3) 0 5px; }
+.modal-card input, .modal-card select, .modal-card textarea { width: 100%; }
+.close { float: right; border: 0; background: var(--bg-base); color: var(--text-secondary); border-radius: var(--radius-sm); width: 32px; height: 32px; cursor: pointer; display: grid; place-items: center; transition: all var(--transition-fast); }
+.close:hover { background: var(--danger-bg); color: var(--danger-fg); }
+
+.mobile-toggle { display: none; }
+footer { background: var(--navy); color: #9db3c4; text-align: center; padding: 25px; font-size: 11px; }
+footer strong { color: var(--accent-hover); }
+.page { display: none; } .page.active { display: block; }
+
+.my-courses-grid { display: grid; gap: 12px; }
+.my-course-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--bg-base); border-radius: var(--radius-md); border-left: 4px solid var(--info-fg); transition: background var(--transition-fast); }
+.my-course-item:hover { background: var(--accent-subtle); }
+.dark-mode .my-course-item:hover { background: var(--info-bg); }
+.my-course-item .info h4 { font-size: 13px; }
+.my-course-item .info small { font-size: 10px; color: var(--text-muted); }
+
+.empty-state { grid-column: 1/-1; text-align: center; padding: var(--space-7) var(--space-4); }
+.empty-state svg { width: 64px; height: 64px; border-radius: 50%; background: var(--bg-base); border: 1px solid var(--border-subtle); padding: 18px; color: var(--text-disabled); }
+.empty-state p { margin-top: var(--space-3); color: var(--text-muted); font-size: 12px; }
+.skeleton { background: linear-gradient(90deg, var(--border-subtle) 25%, var(--border-default) 37%, var(--border-subtle) 63%); background-size: 400% 100%; animation: skeleton-pulse 1.4s ease infinite; border-radius: var(--radius-md); }
+@keyframes skeleton-pulse { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
+
+.toast-wrap { position: fixed; top: 20px; right: 20px; z-index: 100; display: grid; gap: 8px; }
+.toast { background: var(--navy); color: #fff; padding: 12px 18px; border-radius: var(--radius-md); font-size: 12px; box-shadow: var(--shadow-lg); max-width: 320px; display: flex; align-items: center; gap: 8px; }
+.toast.success { background: var(--success-fg); }
+
+.certificate-card { background: linear-gradient(135deg,#fffaf0,#fff); border: 2px solid #f0dfb5; border-radius: var(--radius-lg); padding: 20px; text-align: center; color: #10283b; }
+.certificate-card .qr { width: 56px; height: 56px; background: repeating-linear-gradient(45deg,#111 0 3px,#fff 3px 6px); border: 5px solid #fff; margin: 0 auto 10px; }
+.certificate-card .cert-id { font-size: 10px; color: #7d6b3d; font-family: var(--font-mono); }
+
+.tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+
+/* ---- Login preview ---- */
+.login-preview { display: none; place-items: center; min-height: 100vh; background: linear-gradient(135deg, #0F172A, #174d70); padding: 20px; position: fixed; inset: 0; z-index: 60; }
+.login-preview.open { display: grid; }
+.login-box { background: #fff; border-radius: 20px; padding: 40px; width: min(400px,100%); box-shadow: 0 20px 60px rgba(0,0,0,0.35); color: #10283b; position: relative; }
+.login-box .brand-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 4px; }
+.login-box .brand-row .logo { width: 40px; height: 40px; border-radius: 10px; background: var(--navy); color: #4D7CFF; display: grid; place-items: center; }
+.login-box h2 { text-align: center; margin-bottom: 8px; font-family: var(--font-display); font-weight: 400; font-size: 26px; background: linear-gradient(90deg, var(--accent), var(--accent-hover)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.login-box p.sub { text-align: center; color: #64748B; font-size: 13px; margin-bottom: 24px; }
+.login-box input { width: 100%; padding: 12px 16px; margin-bottom: 14px; color: #10283b; }
+.login-box .btn { width: 100%; padding: 12px; justify-content: center; }
+.login-box .role-select { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.login-box .role-select button { flex: 1; padding: 8px; border: 2px solid #E2E8F0; border-radius: 8px; background: transparent; cursor: pointer; font-weight: 600; font-size: 11px; min-width: 80px; font-family: inherit; }
+.login-box .role-select button.active { border-color: var(--accent); background: #E0EAFF; }
+.login-box .switch-mode { text-align: center; margin-top: 10px; font-size: 12px; color: #64748B; }
+.login-box .switch-mode a { color: #4D7CFF; cursor: pointer; font-weight: 600; }
+.login-hint { text-align: center; margin-top: 12px; font-size: 11px; color: #64748B; }
+.login-preview-close { position: absolute; top: 40px; right: max(24px, calc(50% - 260px)); background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); color: #fff; width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; cursor: pointer; }
+
+/* ---- Mockup-only chrome: banner + palette dock ---- */
+.mockup-banner { background: var(--navy); color: #cfe0ee; font-size: 12px; height: var(--banner-h); padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; position: sticky; top: 0; z-index: 30; flex-wrap: wrap; overflow: hidden; }
+.mockup-banner strong { color: #fff; }
+.mockup-banner button { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff; font-size: 11px; padding: 5px 10px; border-radius: 7px; cursor: pointer; font-family: inherit; }
+
+@media(max-width:1050px){ .sidebar{width:220px} .main{margin-left:220px;width:calc(100% - 220px)} .stats{grid-template-columns:repeat(2,1fr)} .cards-3{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:760px){ .sidebar{transform:translateX(-100%);width:270px} .sidebar.open{transform:translateX(0)} .main{margin-left:0;width:100%} .mobile-toggle{display:grid} .topbar{padding:0 15px} .search{width:45%} .content{padding:18px 15px 40px} .hero{flex-direction:column} .stats,.cards-3,.layout-2,.career{grid-template-columns:1fr} .top-actions .hide-mobile{display:none} .att-summary{grid-template-columns:repeat(2,1fr)} }
+</style>
+
+<div class="mockup-banner">
+  <span><strong>UI Mockup</strong> — every page of VTA QS LMS in one file, with sample data. Nothing here is wired to a server.</span>
+  <button onclick="document.getElementById('loginPreview').classList.add('open')">View login page</button>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<div class="app" id="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="logo"><svg class="icon lg" style="stroke:#fff"><use href="#i-cap"/></svg></div><div><b>VTA QS LMS</b><small>Ninthavur &middot; QS</small></div></div>
+    <div class="nav-title">Main</div>
+    <nav class="nav" id="mainNav">
+      <a class="active" data-page="dashboard"><svg class="icon"><use href="#i-grid"/></svg> Dashboard</a>
+      <a data-page="mycourses"><svg class="icon"><use href="#i-cap"/></svg> All Courses</a>
+      <a data-page="students"><svg class="icon"><use href="#i-users"/></svg> Students</a>
+      <a data-page="lectures"><svg class="icon"><use href="#i-board"/></svg> Lectures</a>
+      <a data-page="attendance"><svg class="icon"><use href="#i-clip"/></svg> Attendance</a>
+      <a data-page="diary"><svg class="icon"><use href="#i-book"/></svg> Daily Diary</a>
+      <a data-page="assignments"><svg class="icon"><use href="#i-pen"/></svg> Assignments</a>
+      <a data-page="exams"><svg class="icon"><use href="#i-cal"/></svg> Exams</a>
+      <a data-page="results"><svg class="icon"><use href="#i-chart"/></svg> Results</a>
+      <a data-page="timetable"><svg class="icon"><use href="#i-week"/></svg> Timetable</a>
+      <a data-page="notes"><svg class="icon"><use href="#i-file"/></svg> Notes</a>
+      <a data-page="pastpapers"><svg class="icon"><use href="#i-filepdf"/></svg> Past Papers</a>
+      <a data-page="forum"><svg class="icon"><use href="#i-horn"/></svg> Announcements</a>
+      <a data-page="career"><svg class="icon"><use href="#i-brief"/></svg> Career</a>
+      <a data-page="events"><svg class="icon"><use href="#i-calcheck"/></svg> Events</a>
+    </nav>
+    <div class="profile-mini" data-page="profile" onclick="go('profile')">
+      <div class="row"><div class="avatar">AU</div><div><b style="font-size:11px">Admin User</b><small style="display:block;color:#a9bdcd;font-size:10px">Administrator</small></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><svg class="icon"><use href="#i-bars"/></svg></button>
+      <div class="search"><svg class="icon"><use href="#i-search"/></svg><input placeholder="Search courses..."></div>
+      <div class="top-actions">
+        <button class="dark-toggle" id="darkToggleBtn" onclick="toggleDark()"><svg class="icon" id="darkIcon"><use href="#i-moon"/></svg></button>
+        <button class="icon-btn notif" onclick="showToast('You have no new notifications.')"><svg class="icon"><use href="#i-bell"/></svg><span class="dot-flag"></span></button>
+        <button class="icon-btn hide-mobile" onclick="go('profile')"><svg class="icon"><use href="#i-user"/></svg></button>
+        <button class="btn btn-gold hide-mobile"><svg class="icon sm" style="stroke:#fff"><use href="#i-logout"/></svg> Logout</button>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- ================= DASHBOARD ================= -->
+      <section id="dashboard" class="page active">
+        <div class="hero">
+          <div><h1>Good morning, Admin User</h1><p>Manage students, courses, and system-wide records for VTA Ninthavur.</p></div>
+        </div>
+        <div class="grid stats">
+          <div class="stat"><div class="ico"><svg class="icon"><use href="#i-users"/></svg></div><span>Total Students</span><b>128</b><small class="trend">Registered</small></div>
+          <div class="stat"><div class="ico"><svg class="icon"><use href="#i-board"/></svg></div><span>Total Lectures</span><b>9</b><small class="trend">Instructors</small></div>
+          <div class="stat"><div class="ico"><svg class="icon"><use href="#i-cap"/></svg></div><span>Total Courses</span><b>4</b><small class="trend">Available</small></div>
+          <div class="stat"><div class="ico"><svg class="icon"><use href="#i-calcheck"/></svg></div><span>Total Events</span><b>3</b><small class="trend">Scheduled</small></div>
+        </div>
+        <div class="grid layout-2" style="margin-top:20px">
+          <div class="panel"><div class="section-head" style="margin:0 0 10px"><div><h2>Recent Uploads</h2></div></div>
+            <div class="my-courses-grid">
+              <div class="my-course-item"><div class="info"><h4>Measurement &amp; Quantification — Exam 02</h4><small>Quantity Surveying &middot; Ashfan &middot; Aug 12, 2026</small></div><span class="badge gold">Exam</span></div>
+              <div class="my-course-item"><div class="info"><h4>BOQ Preparation — Assignment 02</h4><small>Quantity Surveying &middot; Ashfan &middot; Aug 12, 2026</small></div><span class="badge blue">Assignment</span></div>
+              <div class="my-course-item"><div class="info"><h4>Site Levelling — Assignment 01</h4><small>Surveying &amp; Leveling &middot; Rikkap &middot; Aug 10, 2026</small></div><span class="badge blue">Assignment</span></div>
+            </div>
+          </div>
+          <div class="panel"><div class="section-head" style="margin:0 0 10px"><div><h2>Quick Actions</h2></div></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-users"/></svg> Students</button>
+              <button class="btn btn-outline-dark"><svg class="icon sm"><use href="#i-book"/></svg> Daily Diary</button>
+              <button class="btn btn-outline-dark"><svg class="icon sm"><use href="#i-cal"/></svg> Exams</button>
+              <button class="btn btn-outline-dark"><svg class="icon sm"><use href="#i-chart"/></svg> Results</button>
+            </div>
+            <div style="margin-top:14px;padding:12px;background:var(--warning-bg);border-radius:var(--radius-md);border-left:4px solid var(--warning-fg)">
+              <p style="font-size:11px;color:var(--warning-fg)"><svg class="icon sm"><use href="#i-bulb"/></svg> <b>Tip:</b> Complete all lessons to earn a certificate!</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:20px">
+          <div class="section-head" style="margin:0 0 10px"><div><h2>Recent Announcements</h2></div></div>
+          <div class="my-courses-grid">
+            <div class="my-course-item"><div class="info"><h4>Mid-term results published</h4><small>Admin User &middot; Aug 9, 2026</small></div><span class="badge gold">Announcement</span></div>
+            <div class="my-course-item"><div class="info"><h4>Site visit — Colombo, Aug 20</h4><small>Ashfan &middot; Aug 8, 2026</small></div><span class="badge gold">Announcement</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ALL COURSES ================= -->
+      <section id="mycourses" class="page">
+        <div class="section-head">
+          <div><h2>All Courses</h2><p>Every course on the platform</p></div>
+          <button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> Add Course</button>
+        </div>
+        <div class="grid cards-3">
+          <div class="course">
+            <div class="course-icon">QS</div>
+            <h3>Quantity Surveying</h3>
+            <div class="tag-row"><span class="badge gold">Full Time</span><span class="badge blue">NVQ-05</span></div>
+            <p style="margin-top:10px">Sem 1: Measurements (1020), Maths (2050)<br>Sem 2: Estimations (4050), Law (9020)</p>
+            <div class="course-foot"><span><svg class="icon sm"><use href="#i-clock"/></svg> 12 months</span><span>Instructor: Ashfan</span></div>
+            <div class="student-card actions" style="margin-top:10px"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          </div>
+          <div class="course">
+            <div class="course-icon">SL</div>
+            <h3>Surveying &amp; Leveling</h3>
+            <div class="tag-row"><span class="badge gold">Part Time</span><span class="badge blue">Non-NVQ</span></div>
+            <p style="margin-top:10px">Modules: Surveying, Leveling</p>
+            <div class="course-foot"><span><svg class="icon sm"><use href="#i-clock"/></svg> 6 months</span><span>Instructor: Rikkap</span></div>
+            <div class="student-card actions" style="margin-top:10px"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          </div>
+          <div class="course">
+            <div class="course-icon">CT</div>
+            <h3>Construction Technology</h3>
+            <div class="tag-row"><span class="badge gold">Full Time</span><span class="badge blue">NVQ-05</span></div>
+            <p style="margin-top:10px">Sem 1: Materials (1010), Drawing (2010)<br>Sem 2: Structures (4010), Safety (9010)</p>
+            <div class="course-foot"><span><svg class="icon sm"><use href="#i-clock"/></svg> 12 months</span><span>Instructor: Christo</span></div>
+            <div class="student-card actions" style="margin-top:10px"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STUDENTS ================= -->
+      <section id="students" class="page">
+        <div class="section-head"><div><h2>Student Management</h2><p>All enrolled students</p></div><button class="btn btn-gold" onclick="openModal('studentModal')"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> Add Student</button></div>
+        <div class="panel diary-toolbar">
+          <div><label>Course</label><select><option>All Courses</option><option>Quantity Surveying</option><option>Surveying &amp; Leveling</option></select></div>
+          <div><label>Batch / Year</label><select><option>2026</option><option>2025</option></select></div>
+        </div>
+        <div class="grid cards-3">
+          <div class="student-card"><div class="row"><div class="avatar-lg">MA</div><div><h3 style="font-size:13px">A. Mohamed Ashfaak</h3><p style="font-size:10px;color:var(--text-muted);margin-top:2px">MIS-JG/26/QS_L5V1/1/0011</p></div></div>
+            <div class="tag-row"><span class="badge blue">Quantity Surveying</span></div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div></div>
+          <div class="student-card"><div class="row"><div class="avatar-lg">MS</div><div><h3 style="font-size:13px">Mohamed Sumaith</h3><p style="font-size:10px;color:var(--text-muted);margin-top:2px">MIS-JG/26/QS_L5V1/1/0013</p></div></div>
+            <div class="tag-row"><span class="badge blue">Quantity Surveying</span></div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div></div>
+          <div class="student-card"><div class="row"><div class="avatar-lg">MR</div><div><h3 style="font-size:13px">Mohamed Rikkap</h3><p style="font-size:10px;color:var(--text-muted);margin-top:2px">MIS-JG/26/QS_L5V1/1/0014</p></div></div>
+            <div class="tag-row"><span class="badge gold">Surveying &amp; Leveling</span></div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm" onclick="openModal('confirmModal')"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div></div>
+        </div>
+      </section>
+
+      <!-- ================= LECTURES ================= -->
+      <section id="lectures" class="page">
+        <div class="section-head"><div><h2>Lecturers</h2><p>Manage instructor accounts</p></div><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> Add Lecturer</button></div>
+        <div class="grid cards-3">
+          <div class="student-card"><div class="row"><div class="avatar-lg">A</div><div><h3 style="font-size:13px">Ashfan</h3><p style="font-size:10px;color:var(--text-muted);margin-top:2px">LEC-01 &middot; Quantity Surveying</p></div></div>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:8px">Measurements (1020), Maths (2050)</p>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div></div>
+          <div class="student-card"><div class="row"><div class="avatar-lg">C</div><div><h3 style="font-size:13px">Christo</h3><p style="font-size:10px;color:var(--text-muted);margin-top:2px">LEC-02 &middot; Quantity Surveying</p></div></div>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:8px">Estimations (4050), Law (9020)</p>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div></div>
+          <div class="student-card"><div class="row"><div class="avatar-lg">R</div><div><h3 style="font-size:13px">Rasaath</h3><p style="font-size:10px;color:var(--text-muted);margin-top:2px">LEC-03 &middot; Surveying &amp; Leveling</p></div></div>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:8px">Surveying</p>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div></div>
+        </div>
+      </section>
+
+      <!-- ================= ATTENDANCE ================= -->
+      <section id="attendance" class="page">
+        <div class="section-head"><div><h2>Attendance Sheet</h2><p>VTA Ninthavur &middot; Today: <b>August 13, 2026</b></p></div>
+          <div class="att-toolbar"><select><option>August 2026</option><option>July 2026</option></select><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-check"/></svg> All Present</button><button class="btn btn-outline-dark"><svg class="icon sm"><use href="#i-print"/></svg> Print</button></div>
+        </div>
+        <div class="panel diary-toolbar">
+          <div><label>Course</label><select><option>All Courses</option></select></div>
+          <div><label>Batch / Year</label><select><option>2026</option></select></div>
+        </div>
+        <div class="panel">
+          <div class="month-tabs">
+            <div class="month-tab">Jun</div><div class="month-tab">Jul</div><div class="month-tab active">Aug</div><div class="month-tab">Sep</div><div class="month-tab">Oct</div>
+          </div>
+          <div class="legend"><span><i class="dot p"></i>P Present</span><span><i class="dot a"></i>A Absent</span><span><i class="dot l"></i>L Leave</span><span><i class="dot n"></i>&middot; Not marked</span><span><i class="dot future"></i> Future (locked)</span></div>
+          <div class="att-summary"><div class="att-mini"><span>Present</span><b>48</b></div><div class="att-mini"><span>Absent</span><b>2</b></div><div class="att-mini"><span>Leave</span><b>1</b></div><div class="att-mini"><span>Rate</span><b>94%</b></div></div>
+          <div class="att-wrap"><table class="att-table">
+            <thead><tr><th class="sticky">Student</th><th>Mon 3</th><th>Tue 4</th><th>Wed 5</th><th>Thu 6</th><th>Fri 7</th><th>Mon 10</th><th>Tue 11</th><th>Wed 12</th><th>Thu 13</th><th>Fri 14</th></tr></thead>
+            <tbody>
+              <tr><td class="sticky">A. Ashfaak</td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell A">A</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell L">L</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell N">&middot;</div></td><td><div class="att-cell future">&middot;</div></td></tr>
+              <tr><td class="sticky">Mohamed Sumaith</td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell N">&middot;</div></td><td><div class="att-cell future">&middot;</div></td></tr>
+              <tr><td class="sticky">Mohamed Rikkap</td><td><div class="att-cell P">P</div></td><td><div class="att-cell A">A</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell L">L</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell P">P</div></td><td><div class="att-cell N">&middot;</div></td><td><div class="att-cell future">&middot;</div></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <!-- ================= DAILY DIARY ================= -->
+      <section id="diary" class="page">
+        <div class="section-head"><div><h2>Instructor's Daily Diary</h2><p>DVTC &middot; Nintavur</p></div><button class="btn btn-outline-dark"><svg class="icon sm"><use href="#i-print"/></svg> Print / Export PDF</button></div>
+        <div class="panel diary-toolbar">
+          <div><label>Course</label><select><option>Quantity Surveying</option></select></div>
+          <div><label>Date</label><input type="date" value="2026-08-12"></div>
+        </div>
+        <div class="panel diary-sheet">
+          <div class="diary-sheet-head"><h2>DVTC - NINTHAVUR - 2026 BATCH</h2><p>QUANTITY SURVEYING (NVQ-05)</p></div>
+          <div class="diary-meta-row"><div><label>Date:</label> 2026/08/12</div><div><label>Week:</label> 06</div><div><label>Month:</label> August</div></div>
+          <div class="diary-table-wrap"><table class="diary-block-table">
+            <thead><tr><th style="width:12%">Time</th><th style="width:12%">Module</th><th style="width:12%">Task</th><th style="width:50%">Subject Covered</th><th style="width:14%">Signature</th></tr></thead>
+            <tbody>
+              <tr><td class="center">8.30&ndash;10.30</td><td class="center">Maths (2050)</td><td class="center">Lecture</td><td>Trigonometric ratios, worked examples, and practice problem set from Chapter 4.</td><td></td></tr>
+              <tr><td class="center">10.45&ndash;12.15</td><td class="center">Measurements (1020)</td><td class="center">Practical</td><td>Site measurement practice — chain surveying with tape and ranging rods.</td><td></td></tr>
+            </tbody>
+          </table></div>
+          <div class="diary-lunch-divider">Lunch Time: 12.15 PM - 12.45 PM</div>
+          <div class="diary-table-wrap"><table class="diary-block-table">
+            <thead><tr><th style="width:12%">Time</th><th style="width:12%">Module</th><th style="width:12%">Task</th><th style="width:50%">Subject Covered</th><th style="width:14%">Signature</th></tr></thead>
+            <tbody>
+              <tr><td class="center">12.45&ndash;2.45</td><td class="center">Estimations (4050)</td><td class="center">Lecture</td><td>Introduction to BOQ preparation and unit-rate estimation methods.</td><td></td></tr>
+              <tr><td class="center">2.45&ndash;4.15</td><td class="center">&mdash;</td><td class="center">&mdash;</td><td></td><td></td></tr>
+            </tbody>
+          </table></div>
+          <div class="diary-footer"><div><label>Instructor Remarks:</label> Good participation today.</div><div><label>T/O Remarks:</label> &mdash;</div><div><label>T/O Signature:</label> &mdash;</div></div>
+          <div style="margin-top:16px;display:flex;gap:8px"><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-save"/></svg> Save</button><button class="btn btn-outline-dark">New / Clear</button></div>
+        </div>
+      </section>
+
+      <!-- ================= ASSIGNMENTS ================= -->
+      <section id="assignments" class="page">
+        <div class="section-head"><div><h2>Assignments</h2><p>Create &middot; Submit &middot; Mark &middot; Feedback</p></div><button class="btn btn-gold" onclick="openModal('assignmentModal')"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> New Assignment</button></div>
+        <div class="panel diary-toolbar" style="grid-template-columns:repeat(3,1fr)">
+          <div><label>Filter by Course</label><select><option>All Courses</option></select></div>
+          <div><label>Filter by Module</label><select><option>All Modules</option></select></div>
+          <div><label>Filter by Batch</label><select><option>2026</option></select></div>
+        </div>
+        <div class="grid">
+          <div class="assignment-item">
+            <h3 style="font-size:14px">BOQ Preparation Exercise <span class="badge blue" style="margin-left:6px">Quantity Surveying</span> <span class="badge gold">Estimations</span> <span class="badge blue">Batch 2026</span> <span class="badge green">Open</span></h3>
+            <div class="meta"><svg class="icon sm"><use href="#i-cal"/></svg> Start: Aug 12, 10:48 PM &middot; End: Aug 13, 10:48 PM &middot; 4 submissions</div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm" onclick="openModal('submissionsModal')"><svg class="icon sm"><use href="#i-eye"/></svg> View Submissions (4)</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> Preview Attachment</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-clock"/></svg> Edit End Date</button></div>
+          </div>
+          <div class="assignment-item">
+            <h3 style="font-size:14px">Site Measurement Report <span class="badge blue" style="margin-left:6px">Quantity Surveying</span> <span class="badge gold">Measurements</span> <span class="badge blue">Batch 2026</span> <span class="badge red">Closed</span></h3>
+            <div class="meta"><svg class="icon sm"><use href="#i-cal"/></svg> Start: Aug 8, 9:00 AM &middot; End: Aug 11, 9:00 AM &middot; 6 submissions</div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> View Submissions (6)</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> Preview Attachment</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EXAMS ================= -->
+      <section id="exams" class="page">
+        <div class="section-head"><div><h2>Exam Portal</h2><p>Open a window for students to upload their exam paper</p></div><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> New Exam</button></div>
+        <div class="panel diary-toolbar" style="grid-template-columns:repeat(3,1fr)">
+          <div><label>Filter by Course</label><select><option>All Courses</option></select></div>
+          <div><label>Filter by Module</label><select><option>All Modules</option></select></div>
+          <div><label>Filter by Batch</label><select><option>2026</option></select></div>
+        </div>
+        <div class="grid">
+          <div class="assignment-item">
+            <h3 style="font-size:14px">Measurement &amp; Quantification Midterm <span class="badge blue" style="margin-left:6px">Quantity Surveying</span> <span class="badge gold">Measurements</span> <span class="badge blue">Batch 2026</span> <span class="badge green">Open</span></h3>
+            <div class="meta"><svg class="icon sm"><use href="#i-cal"/></svg> Start: Aug 12, 10:49 PM &middot; End: Aug 13, 10:49 PM &middot; 0 uploads</div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> View Papers (0)</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-clock"/></svg> Edit End Time</button></div>
+          </div>
+          <div class="assignment-item">
+            <h3 style="font-size:14px">Estimation Fundamentals — Final <span class="badge blue" style="margin-left:6px">Quantity Surveying</span> <span class="badge gold">Estimations</span> <span class="badge blue">Batch 2026</span> <span class="badge red">Closed</span></h3>
+            <div class="meta"><svg class="icon sm"><use href="#i-cal"/></svg> Start: Aug 10, 10:46 PM &middot; End: Aug 12, 10:46 PM &middot; 5 uploads</div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> View Papers (5)</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= RESULTS ================= -->
+      <section id="results" class="page">
+        <div class="section-head"><div><h2>Results</h2><p>Assignment &amp; exam marks by module</p></div></div>
+        <div class="panel diary-toolbar" style="grid-template-columns:repeat(3,1fr)">
+          <div><label>Course</label><select><option>Quantity Surveying</option></select></div>
+          <div><label>Module</label><select><option>All Modules</option></select></div>
+          <div><label>Batch</label><select><option>2026</option></select></div>
+        </div>
+        <div class="legend" style="margin:12px 0"><span><i class="dot a"></i> Absent</span><span><i class="dot gold"></i> Pending</span><span><i class="dot a"></i> Fail (below 40)</span></div>
+        <div class="panel table-wrap">
+          <table class="table">
+            <thead><tr><th>Student</th><th>Assesment 01<br><small style="font-weight:400;color:var(--text-muted)">Assignment</small></th><th>Assesment 02<br><small style="font-weight:400;color:var(--text-muted)">Assignment</small></th><th>Exam 01<br><small style="font-weight:400;color:var(--text-muted)">Exam</small></th><th>Fail/Absent Count</th></tr></thead>
+            <tbody>
+              <tr><td>A. Mohamed Ashfaak</td><td>72</td><td><span class="badge gold">Pending</span></td><td>58</td><td>0</td></tr>
+              <tr><td>Mohamed Sumaith</td><td><span class="badge red">Absent</span></td><td>81</td><td><span class="badge red">Absent</span></td><td>2</td></tr>
+              <tr><td>Mohamed Rikkap</td><td><span class="badge red">Absent</span></td><td><span class="badge gold">Pending</span></td><td>39 &middot; Fail</td><td>2</td></tr>
+            </tbody>
+            <tfoot><tr><td>3 students</td><td>Absent: 1 &middot; Fail: 0</td><td>Pending: 2</td><td>Absent: 1 &middot; Fail: 1</td><td>4 total</td></tr></tfoot>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= TIMETABLE ================= -->
+      <section id="timetable" class="page">
+        <div class="section-head"><div><h2>Class Timetable</h2><p>Weekly module schedule by course</p></div><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-save"/></svg> Save Timetable</button></div>
+        <div class="panel diary-toolbar" style="grid-template-columns:1fr"><div><label>Course</label><select><option>Quantity Surveying</option></select></div></div>
+        <div class="panel table-wrap">
+          <table class="table">
+            <thead><tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr></thead>
+            <tbody>
+              <tr><td>8.30–10.30 AM</td><td><select><option>Maths (2050)</option></select></td><td><select><option>Measurements (1020)</option></select></td><td><select><option>-- Free --</option></select></td><td><select><option>Estimations (4050)</option></select></td><td><select><option>-- Free --</option></select></td></tr>
+              <tr><td colspan="6" style="text-align:center;font-weight:700">Breakfast</td></tr>
+              <tr><td>10.45–12.15 PM</td><td><select><option>Measurements (1020)</option></select></td><td><select><option>-- Free --</option></select></td><td><select><option>Law (9020)</option></select></td><td><select><option>-- Free --</option></select></td><td><select><option>Maths (2050)</option></select></td></tr>
+              <tr><td colspan="6" style="text-align:center;font-weight:700">Lunch</td></tr>
+              <tr><td>12.45–2.45 PM</td><td><select><option>-- Free --</option></select></td><td><select><option>Estimations (4050)</option></select></td><td><select><option>-- Free --</option></select></td><td><select><option>-- Free --</option></select></td><td><select><option>-- Free --</option></select></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= NOTES ================= -->
+      <section id="notes" class="page">
+        <div class="section-head"><div><h2>Notes</h2><p>Course notes uploaded by instructors</p></div><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> Upload Notes</button></div>
+        <div class="panel diary-toolbar">
+          <div><label>Course</label><select><option>All Courses</option></select></div>
+          <div><label>Module</label><select><option>All Modules</option></select></div>
+        </div>
+        <div class="grid">
+          <div class="assignment-item">
+            <h3 style="font-size:14px">Estimation Fundamentals Notes <span class="badge blue" style="margin-left:6px">Estimations</span></h3>
+            <div class="meta"><svg class="icon sm"><use href="#i-user"/></svg> Ashfan &middot; <svg class="icon sm"><use href="#i-cal"/></svg> Aug 10, 2026</div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> Preview</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-download"/></svg> Download</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          </div>
+          <div class="assignment-item">
+            <h3 style="font-size:14px">Trigonometry Revision Pack <span class="badge blue" style="margin-left:6px">Maths</span></h3>
+            <div class="meta"><svg class="icon sm"><use href="#i-user"/></svg> Admin User &middot; <svg class="icon sm"><use href="#i-cal"/></svg> Aug 9, 2026</div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> Preview</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-download"/></svg> Download</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAST PAPERS ================= -->
+      <section id="pastpapers" class="page">
+        <div class="section-head"><div><h2>Past Papers</h2><p>Past exam papers uploaded by instructors</p></div><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> Upload Past Paper</button></div>
+        <div class="panel diary-toolbar">
+          <div><label>Course</label><select><option>All Courses</option></select></div>
+          <div><label>Module</label><select><option>All Modules</option></select></div>
+        </div>
+        <div class="grid">
+          <div class="assignment-item">
+            <h3 style="font-size:14px">2025 Final Exam Paper <span class="badge blue" style="margin-left:6px">Measurements</span></h3>
+            <div class="meta"><svg class="icon sm"><use href="#i-user"/></svg> Christo &middot; <svg class="icon sm"><use href="#i-cal"/></svg> Aug 9, 2026</div>
+            <div class="actions"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> Preview</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-download"/></svg> Download</button><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ANNOUNCEMENTS ================= -->
+      <section id="forum" class="page">
+        <div class="section-head"><div><h2>Announcements</h2><p>Posted by admin and instructors</p></div><button class="btn btn-gold" onclick="openModal('threadModal')"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> New Announcement</button></div>
+        <div class="panel forum">
+          <div class="thread"><b>Mid-term results published</b><p>Check the Results page — marks for Assesment 01 are now live for all courses.</p></div>
+          <div class="thread"><b>Site visit rescheduled</b><p>The Colombo site visit moves to Aug 20 due to weather. Transport details to follow.</p></div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+          <button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-back"/></svg> Back</button>
+          <h3 style="margin-top:12px">Mid-term results published</h3>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:6px">Check the Results page — marks for Assesment 01 are now live for all courses. Instructors, please finish marking Assesment 02 by Friday.</p>
+          <div style="margin-top:14px">
+            <div class="reply"><b>Demo Student</b> — Thank you, checking now! <br><small>Aug 9, 2026, 4:02 PM</small></div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <input placeholder="Write a reply..." style="flex:1">
+            <button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-send"/></svg></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CAREER ================= -->
+      <section id="career" class="page">
+        <div class="section-head"><div><h2>Career Hub</h2></div><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> Post Job</button></div>
+        <div class="grid career">
+          <div class="job"><span class="badge green">Internship</span><b style="display:block;margin-top:8px">Junior Quantity Surveyor</b><p>Colombo &middot; Closes Sun Aug 30 2026</p><p>Entry-level QS internship for NVQ students.</p><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          <div class="job"><span class="badge blue">Vacancy</span><b style="display:block;margin-top:8px">Assistant Quantity Surveyor</b><p>Ampara</p><p>Diploma/NVQ welcome.</p><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+        </div>
+      </section>
+
+      <!-- ================= EVENTS ================= -->
+      <section id="events" class="page">
+        <div class="section-head"><div><h2>Events</h2></div><button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> New Event</button></div>
+        <div class="grid cards-3">
+          <div class="event-card">
+            <h3 style="font-size:14px">Annual Prize Giving</h3>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:6px"><svg class="icon sm"><use href="#i-pin"/></svg> Main Auditorium</p>
+            <p style="font-size:11px;color:var(--text-muted)"><svg class="icon sm"><use href="#i-user"/></svg> Mr. Perera</p>
+            <p style="font-size:11px;color:var(--text-muted)"><svg class="icon sm"><use href="#i-cal"/></svg> Aug 9, 2026, 5:09 PM</p>
+            <div class="event-photo-grid"><div class="event-thumb"><svg class="icon"><use href="#i-star"/></svg></div><div class="event-thumb"><svg class="icon"><use href="#i-star"/></svg></div><div class="event-thumb"><svg class="icon"><use href="#i-star"/></svg></div></div>
+            <div class="student-card actions" style="margin-top:12px"><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> View PDF</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-download"/></svg> Download</button><button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-edit"/></svg> Edit</button></div>
+            <div style="margin-top:6px"><button class="btn btn-red btn-sm"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROFILE ================= -->
+      <section id="profile" class="page">
+        <div class="section-head"><div><h2>My Profile</h2><p>Manage your personal details and password</p></div></div>
+        <div class="grid layout-2">
+          <div class="panel">
+            <div style="text-align:center;margin-bottom:16px">
+              <div class="avatar-lg" style="width:96px;height:96px;font-size:28px;margin:0 auto 10px">AU</div>
+            </div>
+            <label>Full Name</label><input value="Admin User">
+            <label>Username (Email)</label><input value="admin@vta.lk" disabled>
+            <button class="btn btn-gold" style="margin-top:14px"><svg class="icon sm" style="stroke:#fff"><use href="#i-save"/></svg> Save Changes</button>
+          </div>
+          <div class="panel">
+            <h3 style="font-size:14px;margin-bottom:14px">Change Password</h3>
+            <label>Current Password</label><input type="password" placeholder="••••••••">
+            <label>New Password</label><input type="password" placeholder="••••••••">
+            <label>Confirm New Password</label><input type="password" placeholder="••••••••">
+            <button class="btn btn-outline-dark" style="margin-top:14px"><svg class="icon sm"><use href="#i-key"/></svg> Update Password</button>
+          </div>
+        </div>
+
+        <div class="section-head"><div><h2>My Certificates</h2><p>Earned upon course completion</p></div></div>
+        <div class="grid cards-3">
+          <div class="certificate-card">
+            <div class="qr"></div>
+            <b>Quantity Surveying — NVQ-05</b>
+            <p style="font-size:11px;margin:6px 0">Completed Aug 2026</p>
+            <div class="cert-id">CERT-QS-2026-0142</div>
+          </div>
+        </div>
+
+        <div class="section-head"><div><h2>Empty &amp; loading states</h2><p>Reference states for lists with no data, or data still loading</p></div></div>
+        <div class="grid cards-3">
+          <div class="panel" style="padding:0">
+            <div class="empty-state"><svg><use href="#i-file"/></svg><p>No notes uploaded yet.</p></div>
+          </div>
+          <div class="panel">
+            <div class="skeleton" style="height:14px;width:60%;margin-bottom:10px"></div>
+            <div class="skeleton" style="height:10px;width:90%;margin-bottom:8px"></div>
+            <div class="skeleton" style="height:10px;width:80%"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<footer>&copy; 2026 <strong>VTA QS LMS</strong> &middot; Ninthavur &middot; Full Stack System</footer>
+
+<!-- ================= MODALS ================= -->
+<div class="modal" id="studentModal"><div class="modal-card">
+  <button class="close" onclick="closeModal('studentModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+  <h3>Add Student</h3>
+  <label>Full Name</label><input placeholder="e.g. A. Mohamed Ashfaak">
+  <label>Student MIS No.</label><input placeholder="e.g. MIS-JG/26/QS_L5V1/1/0014">
+  <label>NIC</label><input placeholder="e.g. 123456789V">
+  <label>Batch</label><input placeholder="e.g. 2026">
+  <label>Course</label><select><option>Quantity Surveying</option><option>Surveying &amp; Leveling</option></select>
+  <label>Username / Email</label><input placeholder="student@vta.lk">
+  <label>Password</label><input type="password" placeholder="Login password">
+  <label>Profile Picture</label><input type="file">
+  <button class="btn btn-gold" style="margin-top:14px" onclick="closeModal('studentModal');showToast('Student saved.','success')"><svg class="icon sm" style="stroke:#fff"><use href="#i-save"/></svg> Save</button>
+</div></div>
+
+<div class="modal" id="assignmentModal"><div class="modal-card">
+  <button class="close" onclick="closeModal('assignmentModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+  <h3>New Assignment</h3>
+  <label>Assignment Name</label><input placeholder="e.g. BOQ Preparation Exercise">
+  <label>Course</label><select><option>Quantity Surveying</option></select>
+  <label>Module</label><select><option>Estimations</option></select>
+  <label>Batch</label><select><option>2026</option></select>
+  <label>Start Date &amp; Time</label><input type="datetime-local">
+  <label>End Date &amp; Time</label><input type="datetime-local">
+  <label>Instructions <small style="color:var(--text-muted)">(optional)</small></label><textarea rows="3"></textarea>
+  <button class="btn btn-gold" style="margin-top:14px" onclick="closeModal('assignmentModal');showToast('Assignment created.','success')"><svg class="icon sm" style="stroke:#fff"><use href="#i-plus"/></svg> Create</button>
+</div></div>
+
+<div class="modal" id="submissionsModal"><div class="modal-card wide">
+  <button class="close" onclick="closeModal('submissionsModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+  <h3>Submissions</h3>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:4px">BOQ Preparation Exercise &middot; 4 submissions</p>
+  <div style="margin-top:14px">
+    <div class="submission-row">
+      <div class="row-top"><b>A. Mohamed Ashfaak</b><small>Submitted Aug 12, 9:14 PM</small></div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center">
+        <input placeholder="Grade" style="width:80px">
+        <input placeholder="Feedback" style="flex:1;min-width:160px">
+        <button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> View</button>
+      </div>
+    </div>
+    <div class="submission-row">
+      <div class="row-top"><b>Mohamed Sumaith</b><small>Submitted Aug 12, 10:02 PM</small></div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center">
+        <input placeholder="Grade" style="width:80px" value="88">
+        <input placeholder="Feedback" style="flex:1;min-width:160px" value="Well structured, good detail.">
+        <button class="btn btn-outline-dark btn-sm"><svg class="icon sm"><use href="#i-eye"/></svg> View</button>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="modal" id="threadModal"><div class="modal-card">
+  <button class="close" onclick="closeModal('threadModal')"><svg class="icon"><use href="#i-x"/></svg></button>
+  <h3>New Announcement</h3>
+  <label>Title</label><input placeholder="e.g. Exam schedule update">
+  <label>Message</label><textarea rows="3"></textarea>
+  <button class="btn btn-gold" style="margin-top:14px" onclick="closeModal('threadModal');showToast('Announcement posted.','success')"><svg class="icon sm" style="stroke:#fff"><use href="#i-send"/></svg> Post</button>
+</div></div>
+
+<div class="modal" id="confirmModal"><div class="modal-card" style="max-width:380px">
+  <h3>Please confirm</h3>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:6px">Remove Mohamed Rikkap from Surveying &amp; Leveling? This cannot be undone.</p>
+  <div style="margin-top:18px;display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn btn-outline-dark btn-sm" onclick="closeModal('confirmModal')">Cancel</button>
+    <button class="btn btn-red btn-sm" onclick="closeModal('confirmModal');showToast('Student removed.')"><svg class="icon sm"><use href="#i-trash"/></svg> Remove</button>
+  </div>
+</div></div>
+
+<!-- ================= LOGIN PREVIEW ================= -->
+<div class="login-preview" id="loginPreview">
+  <button class="login-preview-close" onclick="document.getElementById('loginPreview').classList.remove('open')"><svg class="icon"><use href="#i-x"/></svg></button>
+  <div class="login-box">
+    <div class="brand-row"><div class="logo"><svg class="icon"><use href="#i-cap"/></svg></div></div>
+    <h2>VTA QS LMS</h2>
+    <p class="sub">Ninthavur &middot; Quantity Surveying</p>
+    <input value="student@vta.lk">
+    <input type="password" value="password123">
+    <button class="btn btn-gold"><svg class="icon sm" style="stroke:#fff"><use href="#i-logout"/></svg> Login</button>
+    <p class="login-hint">Demo accounts (password: password123): admin@vta.lk &middot; instructor@vta.lk &middot; student@vta.lk</p>
+    <p class="switch-mode">No account? <a>Register here</a></p>
+  </div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.id===id));
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active', a.dataset.page===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if (window.innerWidth < 760) document.getElementById('sidebar').classList.remove('open');
+}
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>go(a.dataset.page)));
+
+function openModal(id){ document.getElementById(id).classList.add('open'); }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click', e=>{ if(e.target===m) closeModal(m.id); }));
+
+function toggleDark(){
+  const on = document.body.classList.toggle('dark-mode');
+  document.getElementById('darkIcon').innerHTML = '<use href="#i-moon"/>';
+}
+
+let toastId = 0;
+function showToast(msg, type){
+  const wrap = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className = 'toast' + (type ? ' ' + type : '');
+  el.innerHTML = (type==='success' ? '<svg class="icon sm" style="stroke:#fff"><use href="#i-check"/></svg>' : '<svg class="icon sm" style="stroke:#fff"><use href="#i-bell"/></svg>') + '<span>' + msg + '</span>';
+  wrap.appendChild(el);
+  setTimeout(()=>el.remove(), 3200);
+}
+
+document.querySelectorAll('.month-tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.month-tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+}));
+
+let cellStates = ['P','A','L','N'];
+document.querySelectorAll('.att-cell:not(.future)').forEach(c=>c.addEventListener('click',()=>{
+  const cur = cellStates.findIndex(s=>c.classList.contains(s));
+  const next = cellStates[(cur+1)%cellStates.length];
+  cellStates.forEach(s=>c.classList.remove(s));
+  c.classList.add(next);
+  c.textContent = next==='N' ? '·' : next;
+}));
+</script>
