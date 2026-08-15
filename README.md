@@ -1,6 +1,6 @@
-# VTA QS LMS
+# LMS for Institution
 
-Full-stack Learning Management System for VTA Ninthavur's Quantity Surveying program.
+Full-stack Learning Management System for  Quantity Surveying program.
 
 ## Stack
 - Backend: Node.js + Express + MySQL (via `mysql2`)
